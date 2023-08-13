@@ -1,0 +1,40 @@
+{%extends 'base.html'%}
+
+{%block content%}
+<link rel="stylesheet" href="../static/style.css">
+<div class="form-container">
+
+<form method="POST" action="{{ url_for('home') }}">
+    {{ search_form.hidden_tag() }}
+    <div class="input-group mb-3">
+      {{ search_form.search(class_="form-control", placeholder="Search cocktails") }}
+      <div class="input-group-append">
+        <button class="btn btn-secondary" type="submit">Search</button>
+      </div>
+    </div>
+  </form>
+
+
+  <div class="container">
+    
+    <div class="row justify-content-center">
+      <div class="col-md-6 mb-4">
+        <div class="card">
+          <img src="{{ cocktail['image'] }}" class="card-img-top" alt="{{ cocktail['name'] }}" width="400px" height="400px">
+          <div class="card-body">
+            <h5 class="card-title">{{ cocktail['name'] }}</h5>
+            <p class="card-text">{{ cocktail['instructions'] }}</p>
+            <a href="{{ url_for('cocktail', id=cocktail['id']) }}" class="btn btn-primary">View Details</a>
+        
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+{%endblock%}

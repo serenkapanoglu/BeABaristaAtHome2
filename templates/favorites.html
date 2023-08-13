@@ -1,0 +1,32 @@
+{%extends 'base.html'%}
+{%block content%}
+
+<div>
+<h2 class="center m-3">Favorite cocktails</h2>
+{%if cocktail_list%}
+<div class="row row-cols-auto justify-content-center">
+{%for cocktails in cocktail_list%}
+{%for cocktail in cocktails%}
+
+<div class="row card-search">
+    <div class="col-sm center">
+    <img class="card-img-top" src="{{cocktail.img_url}}" alt="Img for {{cocktail.name}}" style="width: 18rem;">
+
+
+    <form class="inline" method="post" action="/{{session['curr_user']}}/favorites/delete/{{cocktail.id}}">
+    <h4 class="card-title mt-3"><a class="link-color" href="/cocktail/{{cocktail.id}}">{{cocktail.name}}</a></h4>
+    <button class="btn btn-outline-dark m-3 btn-mobile">Delete Favorite</button>
+    </form>
+</div>
+</div> 
+{% endfor %}
+{% endfor %}
+</div>
+
+{%else%}
+<h4 class="center mt-5 line">You don't favourited any cocktails</h4>
+{%endif%}
+
+
+</div>
+{%endblock%}

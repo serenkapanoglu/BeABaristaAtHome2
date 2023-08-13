@@ -1,0 +1,46 @@
+{%extends 'base.html'%}
+{%block title%}Register{%endblock%}
+
+
+{%block content%}
+
+<div class="center">
+<h1 class="m-4">Please Register</h1>
+<link rel="stylesheet" href="../static/style.css">
+
+
+<form method="post" >
+    {{form.hidden_tag()}}
+    {%for field in form
+    if field.widget.input_type != 'hidden'%}
+    {%endfor%}
+
+    <div class="mt-2">
+        {{form.username.label}}
+    
+        {{form.username()}}
+    </div>
+    <div class="mt-2">
+        {{form.password.label}}
+        {{form.password()}}
+        <br>
+        {%for field in form%}
+        {%for error in field.errors%}
+            {{error}}
+        {%endfor%}
+        {%endfor%}
+    </div>
+    <div class="mt-2">
+        {{form.first_name.label}}
+        {{form.first_name()}}
+        <div class="mt-2">
+        {{form.last_name.label}}
+        {{form.last_name()}}
+        </div>
+    </div>
+    <button class="btn btn-outline-secondary m-4 btn-mobile">Submit</button>
+
+
+</form>
+</div>
+{%endblock%}

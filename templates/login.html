@@ -1,0 +1,49 @@
+{%extends 'base.html'%}
+
+
+
+{%block content%}
+
+<link rel="stylesheet" href="../static/style.css">
+<div class="center">
+<h1 class="m-4">Welcome Back</h1>
+
+
+<form method="post">
+    {{form.hidden_tag()}}
+    {%for field in form
+    if field.widget.input_type != 'hidden'%}
+    {%endfor%}
+
+    <div class="card2">
+    <div class="m-4">
+        {{form.username.label}}
+        {{form.username()}}
+    </div>
+    <div>
+        {{form.password.label}}
+        {{form.password()}}
+        <br>
+        {%for field in form%}
+        {%for error in field.errors%}
+            {{error}}
+        {%endfor%}
+        {%endfor%}
+
+    </div>
+    </div>
+
+    <button class="btn btn-outline-secondary mt-3 mb-4 btn-mobile">Login</button>
+</form>
+<div class="mt-4">
+<h3>Don't have an account??</h3>
+<p>Register for free below</p>
+<form action="/register">
+    <button class="btn btn-outline-secondary btn-mobile">Register</button>
+</form>
+</div>
+
+
+</div>
+
+{%endblock%}

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container mt-4">
+    <link rel="stylesheet" href="../static/style2.css">
+    <h2>Search Results for "{{ term }}"</h2>
+
+    {% if cocktails %}
+
+        {% for cocktail in cocktails %}
+          <li class="list-group-item">
+            <a href="{{ url_for('cocktail', id=cocktail['idDrink']) }}">{{ cocktail['strDrink'] }}</a>
+          </li>
+        {% endfor %}
+    
+    {% else %}
+      <p>No cocktails found for "{{ term }}".</p>
+    {% endif %}
+
+    <div class="row mt-4">
+      {% for cocktail in cocktails %}
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <img src="{{ cocktail['image'] }}" alt="{{ cocktail['name'] }}" class="card-img-top" style="width: 100%; height: 300px;">
+            <div class="card-body">
+              <h5 class="card-title">{{ cocktail['name'] }}</h5>
+              <a href="{{ url_for('cocktail', id=cocktail['id']) }}" class="btn btn-primary">View Details</a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}
