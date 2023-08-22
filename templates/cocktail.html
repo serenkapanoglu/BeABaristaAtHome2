@@ -4,6 +4,7 @@
   <div class="container">
     <link rel="stylesheet" href="../static/style3.css">
 
+    
     <form method="post" action="{{ url_for('add_to_favorites', cocktail_id=cocktail['id']) }}">
       {{ form.csrf_token }}
       <button>
@@ -55,7 +56,11 @@
 
   <h2>Comments:</h2>
   {% for comment in comments %}
-    <p>{{ comment.text }}</p>
+    <div class="comment">
+        <p class="username">{{ comment.user.username }}</p>
+        <p class="comment-text">{{ comment.text }}</p>
+        <p class="timestamp">{{ comment.created_at.strftime('%B %d, %Y') }}</p>
+    </div>
     <form method="POST" action="{{ url_for('delete_comment', cocktail_id=cocktail.id, id=comment.id) }}">
       {{ form.csrf_token }}
       <button type="submit" class="btn btn-danger">Delete Comment</button>
@@ -76,6 +81,7 @@
       {{ form.comment.label }}
       {{ form.comment(class_='form-control', rows=4) }}
     </div>
+   
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
   </div>

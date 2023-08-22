@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, RadioField, SubmitField, TextAreaField
-from wtforms.validators import DataRequired, Length
+from wtforms import StringField, PasswordField, RadioField, SubmitField, TextAreaField, FloatField
+from wtforms.validators import DataRequired, Length, NumberRange
 
 
 class UserAddForm(FlaskForm):
@@ -24,3 +24,4 @@ class SearchForm(FlaskForm):
 class CommentForm(FlaskForm):
     comment = TextAreaField('Comment', validators=[Length(min=6, max=100), DataRequired()])
     submit = SubmitField('Submit')
+   

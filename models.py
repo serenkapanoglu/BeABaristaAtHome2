@@ -2,6 +2,9 @@
 from flask_bcrypt import Bcrypt
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import relationship
+from datetime import datetime
+
+
 
 
 bcrypt = Bcrypt()
@@ -80,12 +83,19 @@ class Cocktail(db.Model):
     def __repr__(self):
         return f"<Cocktail {self.name}>"
 
+  
+    
+    
     
 class Comment(db.Model):
     __tablename__="comments"
     
     id=db.Column(db.Integer, primary_key=True)
     text=db.Column(db.Text, nullable=False)
+    created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    user = db.relationship('User', backref='comments')
     cocktail_id=db.Column(db.Integer, nullable=False)
     
 
@@ -105,9 +115,11 @@ class Favorite(db.Model):
     )
 
     cocktail_id = db.Column(
-        db.Integer,
-        db.ForeignKey('cocktails.id', ondelete= "cascade"),
+        db.Integer
     )
+
+
+
 
 
 

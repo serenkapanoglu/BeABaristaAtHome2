@@ -117,6 +117,9 @@ def cocktail(id):
     if form.validate_on_submit():
         comment_text = form.comment.data
         
+        
+        user_id = session.get(CURR_USER_KEY)
+        
        # cocktail = Cocktail.query.get(id)
         #if cocktail is None:
          #   flash("Cocktail not found", "error")
@@ -124,10 +127,12 @@ def cocktail(id):
         
 
         
-        comment = Comment(text=comment_text, cocktail_id=id)
+        comment = Comment(text=comment_text, cocktail_id=id,user_id=user_id)
 
         
+        
         db.session.add(comment)
+        
         db.session.commit()
         
 
@@ -142,7 +147,7 @@ def cocktail(id):
 
 
 
-@app.route("/delete/comment/<int:cocktail_id>/delete/comment/<int:id>")
+@app.route("/delete/comment/<int:cocktail_id>/delete/comment/<int:id>", methods=["POST"])
 def delete_comment(cocktail_id, id):
     comment = Comment.query.get_or_404(id)
     db.session.delete(comment)
@@ -172,20 +177,24 @@ def add_to_favorites(cocktail_id):
     return redirect(f'/{user_id}/favorites')
 
 
-
 @app.route('/<int:user_id>/favorites')
 def user_fav(user_id):
     if CURR_USER_KEY not in session:
         return redirect('login.html')
     
-    favs= Favorite.query.filter_by(user_id=user_id).all()
-    fav_list = []
-    i = 0
-    for result in favs:
-        fav_details = Cocktail.query.filter_by(id=favs[i].cocktail_id)
-        fav_list.append(fav_details) 
-        i +=1
-    return render_template('favorites.html', cocktail_list=fav_list)
+    favs = Favorite.query.filter_by(user_id=user_id).all()
+    cocktail_list = []
+    
+    for item in favs:
+        response = requests.get(f"https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i={item.cocktail_id}")
+        data = response.json()
+        cocktail = data["drinks"][0]
+        cocktail_list.append(cocktail)
+        
+    
+    print(cocktail_list);
+    
+    return render_template('favorites.html', cocktail_list=cocktail_list)
 
 @app.route('/<int:user_id>/favorites/delete/<int:drink_id>', methods=["POST"])
 def delete_cocktail(user_id, drink_id):
@@ -193,10 +202,6 @@ def delete_cocktail(user_id, drink_id):
     db.session.delete(fav)
     db.session.commit()
     return redirect(f'/{user_id}/favorites')
-
-
-
-
 
 
 

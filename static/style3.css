@@ -34,7 +34,7 @@
 .card-title {
     font-size: 18px;
     font-weight: 600;
-    color: #ff85ec;
+    color: red;
     
   }
  
@@ -69,7 +69,8 @@
 
     width: 470px;
     height: 500px;
-    background: linear-gradient(135deg, #ff85ec 0%, #84ff98 100%);
+    overflow:scroll;
+    background: #d8d8d8;
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(20px);
@@ -82,7 +83,7 @@
     padding: 2rem!important ;
     text-align: center;
     justify-items: center;
-    margin-top: 25px;
+    margin-top: 17px;
     line-height: 60px;
     font-size: 24px;
 
@@ -178,3 +179,28 @@ button:hover .filled {
   opacity: 1;
   animation: beatingHeart 1.2s infinite;
 }
+
+/* Styles for comments */
+.comment {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #f7f7f7;
+}
+
+.username {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: red;
+}
+
+.comment-text {
+  margin-top: 5px;
+  
+}
+
+.timestamp {
+  color: #888;
+  font-size: 12px;
+}
+
