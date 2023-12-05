@@ -2,6 +2,8 @@ from flask import Flask, render_template, request, flash, redirect, session,url_
 import requests
 from models import Cocktail
 import random
+import os
+
 
 
 from models import db, connect_db, User, Comment, Favorite
@@ -12,13 +14,20 @@ from forms import UserAddForm, LoginForm,SearchForm, CommentForm
 
 app = Flask(__name__)
 app.app_context().push()
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///cocktails'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///cocktails'
+#app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
+    'DATABASE_URL', 'postgres:///cocktails').replace("://", "ql://", 1)
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+
 
 connect_db(app)
 db.create_all()
 
-app.config['SECRET_KEY'] = "I'LL NEVER TELL!!"
+#app.config['SECRET_KEY'] = "I'LL NEVER TELL!!"
+
+app.config["SECRET_KEY"] = os.environ.get('SECRET_KEY','capstonesecret')
+
 CURR_USER_KEY = "curr_user"
 
 
