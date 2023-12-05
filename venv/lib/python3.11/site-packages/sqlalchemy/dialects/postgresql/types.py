@@ -17,6 +17,12 @@ from ...sql import sqltypes
 from ...sql import type_api
 from ...util.typing import Literal
 
+if TYPE_CHECKING:
+    from ...engine.interfaces import Dialect
+    from ...sql.operators import OperatorType
+    from ...sql.type_api import _LiteralProcessorType
+    from ...sql.type_api import TypeEngine
+
 _DECIMAL_TYPES = (1231, 1700)
 _FLOAT_TYPES = (700, 701, 1021, 1022)
 _INT_TYPES = (20, 21, 23, 26, 1005, 1007, 1016)
@@ -243,6 +249,14 @@ class INTERVAL(type_api.NativeForEmulated, sqltypes._AbstractInterval):
     def python_type(self) -> Type[dt.timedelta]:
         return dt.timedelta
 
+    def literal_processor(
+        self, dialect: Dialect
+    ) -> Optional[_LiteralProcessorType[dt.timedelta]]:
+        def process(value: dt.timedelta) -> str:
+            return f"make_interval(secs=>{value.total_seconds()})"
+
+        return process
+
 
 PGInterval = INTERVAL
 
@@ -291,3 +305,8 @@ class CITEXT(sqltypes.TEXT):
     """
 
     __visit_name__ = "CITEXT"
+
+    def coerce_compared_value(
+        self, op: Optional[OperatorType], value: Any
+    ) -> TypeEngine[Any]:
+        return self

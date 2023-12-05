@@ -454,7 +454,8 @@ class Rule(RuleFactory):
         websocket: bool = False,
     ) -> None:
         if not string.startswith("/"):
-            raise ValueError("urls must start with a leading slash")
+            raise ValueError(f"URL rule '{string}' must start with a slash.")
+
         self.rule = string
         self.is_leaf = not string.endswith("/")
         self.is_branch = string.endswith("/")
@@ -582,7 +583,7 @@ class Rule(RuleFactory):
         if self.map.sort_parameters:
             items = sorted(items, key=self.map.sort_key)
 
-        return _urlencode(items, encoding=self.map.charset)
+        return _urlencode(items)
 
     def _parse_rule(self, rule: str) -> t.Iterable[RulePart]:
         content = ""
@@ -738,12 +739,7 @@ class Rule(RuleFactory):
                 opl.append((False, data))
             elif not is_dynamic:
                 # safe = https://url.spec.whatwg.org/#url-path-segment-string
-                opl.append(
-                    (
-                        False,
-                        quote(data, safe="!$&'()*+,/:;=@", encoding=self.map.charset),
-                    )
-                )
+                opl.append((False, quote(data, safe="!$&'()*+,/:;=@")))
             else:
                 opl.append((True, data))
 

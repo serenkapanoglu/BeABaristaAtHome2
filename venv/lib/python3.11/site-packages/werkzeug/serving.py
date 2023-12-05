@@ -154,9 +154,7 @@ class WSGIRequestHandler(BaseHTTPRequestHandler):
 
     @property
     def server_version(self) -> str:  # type: ignore
-        from . import __version__
-
-        return f"Werkzeug/{__version__}"
+        return self.server._server_version
 
     def make_environ(self) -> WSGIEnvironment:
         request_url = urlsplit(self.path)
@@ -764,7 +762,7 @@ class BaseWSGIServer(HTTPServer):
                     if sys.platform == "darwin" and port == 5000:
                         print(
                             "On macOS, try disabling the 'AirPlay Receiver' service"
-                            " from System Preferences -> Sharing.",
+                            " from System Preferences -> General -> AirDrop & Handoff.",
                             file=sys.stderr,
                         )
 
@@ -795,6 +793,10 @@ class BaseWSGIServer(HTTPServer):
             self.ssl_context: ssl.SSLContext | None = ssl_context
         else:
             self.ssl_context = None
+
+        import importlib.metadata
+
+        self._server_version = f"Werkzeug/{importlib.metadata.version('werkzeug')}"
 
     def log(self, type: str, message: str, *args: t.Any) -> None:
         _log(type, message, *args)
