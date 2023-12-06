@@ -14,11 +14,11 @@ from forms import UserAddForm, LoginForm,SearchForm, CommentForm
 
 app = Flask(__name__)
 app.app_context().push()
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///cocktails'
-#app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
-    'DATABASE_URL', 'postgres:///cocktails').replace("://", "ql://", 1)
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///cocktails'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+#app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
+ #   'DATABASE_URL', 'postgres:///cocktails').replace("://", "ql://", 1)
+#app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 
 connect_db(app)
