@@ -24,9 +24,9 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 connect_db(app)
 db.create_all()
 
-#app.config['SECRET_KEY'] = "I'LL NEVER TELL!!"
+app.config['SECRET_KEY'] = "I'LL NEVER TELL!!"
 
-app.config["SECRET_KEY"] = os.environ.get('SECRET_KEY','capstonesecret')
+
 
 CURR_USER_KEY = "curr_user"
 
