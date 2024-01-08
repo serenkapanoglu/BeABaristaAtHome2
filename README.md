@@ -26,6 +26,9 @@ Welcome to the Cocktail API project! This project is a Flask-based web applicati
   - Sign up with first name, last name, username, and password.
   - Passwords are securely encrypted using Bcrypt.
   - Sign in with registered credentials.
+  <br></br>
+  <br></br>
+  
     <img src="https://github.com/serenkapanoglu/BeABaristaAtHome2/blob/main/images2/login.png" />
     <img src ="https://github.com/serenkapanoglu/BeABaristaAtHome2/blob/main/images2/register.png?raw=true" />
     <br></br>
@@ -35,6 +38,8 @@ Welcome to the Cocktail API project! This project is a Flask-based web applicati
   - Users can add drinks to their favorites.
   - View all favorite drinks on the Favorites page.
   - Remove drinks from favorites.
+    <br></br>
+  <br></br>
     <img src = "https://github.com/serenkapanoglu/BeABaristaAtHome2/blob/main/images2/fav.png" />
 <br></br>
 <br></br>
@@ -42,15 +47,17 @@ Welcome to the Cocktail API project! This project is a Flask-based web applicati
 - ## **Comments:**
   - Users can add comments to cocktails.
   - Delete their own comments.
+    <br></br>
+  <br></br>
     <img src = "https://github.com/serenkapanoglu/BeABaristaAtHome2/blob/main/images2/addcomment.png" />
     <img src = "https://github.com/serenkapanoglu/BeABaristaAtHome2/blob/main/images2/deletecomment.png" />
 <br></br>
 <br></br>
 
 - ## **Random Cocktail on Page Refresh:** Every time a user refreshes the page, a random cocktail is displayed.
-<img src= "https://github.com/serenkapanoglu/BeABaristaAtHome2/blob/main/images2/search2.png" width="200px"/>
-  <img src = "https://github.com/serenkapanoglu/BeABaristaAtHome2/blob/main/images2/search4.png" width="200px"/>
-   <img src = "https://github.com/serenkapanoglu/BeABaristaAtHome2/blob/main/images2/search.png" width="200px"/>
+<img src= "https://github.com/serenkapanoglu/BeABaristaAtHome2/blob/main/images2/search2.png" />
+<img src = "https://github.com/serenkapanoglu/BeABaristaAtHome2/blob/main/images2/search4.png" />
+<img src = "https://github.com/serenkapanoglu/BeABaristaAtHome2/blob/main/images2/search.png" />
    
 <br></br>
 <br></br>
