@@ -67,7 +67,8 @@ The project is deployed and can be accessed at [be-a-barista-at-home.onrender.co
 
 ## Database Schema
 
-Include a brief description or a visual representation of your database schema. You can use tools like [draw.io](https://app.diagrams.net/) for creating a visual representation.
+<img src = "https://github.com/serenkapanoglu/BeABaristaAtHome2/blob/main/schema.png" />
+
 
 ## Project Structure
 
