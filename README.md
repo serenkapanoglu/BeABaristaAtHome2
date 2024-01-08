@@ -50,7 +50,7 @@ Welcome to the Cocktail API project! This project is a Flask-based web applicati
     <img src = "https://github.com/serenkapanoglu/BeABaristaAtHome2/blob/main/images2/addcomment.png" />
     <img src = "https://github.com/serenkapanoglu/BeABaristaAtHome2/blob/main/images2/deletecomment.png" />
 <br></br>
-
+<br></br>
 
 - ## **Random Cocktail on Page Refresh:** Every time a user refreshes the page, a random cocktail is displayed.
 <img src= "https://github.com/serenkapanoglu/BeABaristaAtHome2/blob/main/images2/search2.png" />
