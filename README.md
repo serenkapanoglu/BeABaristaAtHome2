@@ -18,9 +18,7 @@ Welcome to the Cocktail API project! This project is a Flask-based web applicati
 - **Search Cocktails by Name:** Users can search for cocktails by their names. <br></br>
  <img src = "https://github.com/serenkapanoglu/BeABaristaAtHome2/blob/main/images2/search3.png" />
  <img src = "https://github.com/serenkapanoglu/BeABaristaAtHome2/blob/main/images2/searchvodka.png" />
- 
   <br></br>
- 
   
 - ## **User Authentication:**
   - Sign up with first name, last name, username, and password.
