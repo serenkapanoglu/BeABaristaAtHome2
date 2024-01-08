@@ -69,10 +69,37 @@ The project is deployed and can be accessed at [be-a-barista-at-home.onrender.co
 
 Include a brief description or a visual representation of your database schema. You can use tools like [draw.io](https://app.diagrams.net/) for creating a visual representation.
 
+## Project Structure
+
+- `/app`: This directory holds the core files for your Flask application.
+  - `app.py`: Entry point for the Flask application.
+  - `forms.py`: Includes forms for user input.
+  - `models.py`: Contains database models.
+
+
+- `/templates`: Holds HTML templates for your Flask app.
+  - `base.html`: Base template with common structure.
+  - `cocktails.html`: Template for displaying cocktail information.
+  - `favorites.html`: Template for showing user's favorite drinks.
+  - `home.html`: Template for the home page.
+  - `login.html`: Template for user login.
+  - `register.html`: Template for user registration.
+  - `search.html`: Template for searching cocktails.
+
+- `/images2`: Stores images used in the project.
+
+
+- `.env`: Configuration file for environment variables, including sensitive data like API keys.
+
+- `requirements.txt`: Lists all the dependencies required for your project.
+
+- `README.md`: Documentation for your project.
+
 
 ## Getting Started
 
 1. Clone the repository.
    ```bash
-   git clone https://github.com/your-username/cocktail-api-project.git
-   cd cocktail-api-project
+   git clone https://github.com/serenkapanoglu/BeABaristaAtHome2.git
+   cd BeABaristaAtHome2
+   flask run
