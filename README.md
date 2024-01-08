@@ -18,7 +18,7 @@ Welcome to the Cocktail API project! This project is a Flask-based web applicati
  <img src = "https://github.com/serenkapanoglu/BeABaristaAtHome2/blob/main/images2/searchvodka.png" />
  
   
-- **User Authentication:**
+- ## **User Authentication:**
   - Sign up with first name, last name, username, and password.
   - Passwords are securely encrypted using Bcrypt.
   - Sign in with registered credentials.
@@ -26,19 +26,19 @@ Welcome to the Cocktail API project! This project is a Flask-based web applicati
     <img src ="https://github.com/serenkapanoglu/BeABaristaAtHome2/blob/main/images2/register.png?raw=true" />
     
 
-- **Favorites:**
+- ## **Favorites:**
   - Users can add drinks to their favorites.
   - View all favorite drinks on the Favorites page.
   - Remove drinks from favorites.
     <img src = "https://github.com/serenkapanoglu/BeABaristaAtHome2/blob/main/images2/fav.png" />
 
-- **Comments:**
+- ## **Comments:**
   - Users can add comments to cocktails.
   - Delete their own comments.
     <img src = "https://github.com/serenkapanoglu/BeABaristaAtHome2/blob/main/images2/addcomment.png" />
     <img src = "https://github.com/serenkapanoglu/BeABaristaAtHome2/blob/main/images2/deletecomment.png" />
 
-- **Random Cocktail on Page Refresh:** Every time a user refreshes the page, a random cocktail is displayed.
+- ## **Random Cocktail on Page Refresh:** Every time a user refreshes the page, a random cocktail is displayed.
 <img src= "https://github.com/serenkapanoglu/BeABaristaAtHome2/blob/main/images2/search2.png" />
   <img src = "https://github.com/serenkapanoglu/BeABaristaAtHome2/blob/main/images2/search4.png" />
    <img src = "https://github.com/serenkapanoglu/BeABaristaAtHome2/blob/main/images2/search.png" />
