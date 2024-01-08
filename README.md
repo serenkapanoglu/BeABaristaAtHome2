@@ -11,7 +11,7 @@ Welcome to the Cocktail API project! This project is a Flask-based web applicati
 - SQLAlchemy for database ORM.
 - Jinja for templating.
 <br></br>
-<br></br>
+
 
 ## Features
 
@@ -20,7 +20,7 @@ Welcome to the Cocktail API project! This project is a Flask-based web applicati
  <img src = "https://github.com/serenkapanoglu/BeABaristaAtHome2/blob/main/images2/searchvodka.png" />
  
   <br></br>
-  <br></br>
+ 
   
 - ## **User Authentication:**
   - Sign up with first name, last name, username, and password.
@@ -32,7 +32,7 @@ Welcome to the Cocktail API project! This project is a Flask-based web applicati
     <img src="https://github.com/serenkapanoglu/BeABaristaAtHome2/blob/main/images2/login.png" />
     <img src ="https://github.com/serenkapanoglu/BeABaristaAtHome2/blob/main/images2/register.png?raw=true" />
     <br></br>
-    <br></br>
+    
 
 - ## **Favorites:**
   - Users can add drinks to their favorites.
@@ -42,7 +42,7 @@ Welcome to the Cocktail API project! This project is a Flask-based web applicati
   <br></br>
     <img src = "https://github.com/serenkapanoglu/BeABaristaAtHome2/blob/main/images2/fav.png" />
 <br></br>
-<br></br>
+
 
 - ## **Comments:**
   - Users can add comments to cocktails.
@@ -52,7 +52,7 @@ Welcome to the Cocktail API project! This project is a Flask-based web applicati
     <img src = "https://github.com/serenkapanoglu/BeABaristaAtHome2/blob/main/images2/addcomment.png" />
     <img src = "https://github.com/serenkapanoglu/BeABaristaAtHome2/blob/main/images2/deletecomment.png" />
 <br></br>
-<br></br>
+
 
 - ## **Random Cocktail on Page Refresh:** Every time a user refreshes the page, a random cocktail is displayed.
 <img src= "https://github.com/serenkapanoglu/BeABaristaAtHome2/blob/main/images2/search2.png" />
@@ -60,7 +60,7 @@ Welcome to the Cocktail API project! This project is a Flask-based web applicati
 <img src = "https://github.com/serenkapanoglu/BeABaristaAtHome2/blob/main/images2/search.png" />
    
 <br></br>
-<br></br>
+
 
 
 ## Deployment
