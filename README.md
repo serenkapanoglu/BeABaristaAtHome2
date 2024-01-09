@@ -63,7 +63,7 @@ Welcome to the Cocktail API project! This project is a Flask-based web applicati
 
 ## Deployment
 
-The project is deployed and can be accessed at [be-a-barista-at-home.onrender.com](https://be-a-barista-at-home.onrender.com/).
+ [be-a-barista-at-home.onrender.com](https://your-barista-at-home.onrender.com/).
 
 ## Database Schema
 
