@@ -2,7 +2,11 @@
 
 Welcome to the Cocktail API project! This project is a Flask-based web application that allows users to explore and interact with cocktail information retrieved from [TheCocktailDB API](https://www.thecocktaildb.com/api.php?ref=apilist.fun). Users can search for cocktails by name, sign in or sign up, add drinks to their favorites, leave comments, and more.
 
-  
+  ## Deployment
+
+ [your-barista-at-home.onrender.com](https://your-barista-at-home.onrender.com/).
+
+ 
 ## Tech Stack
 
 - HTML, CSS, Bootstrap for front-end.
@@ -61,9 +65,7 @@ Welcome to the Cocktail API project! This project is a Flask-based web applicati
 
 
 
-## Deployment
 
- [be-a-barista-at-home.onrender.com](https://your-barista-at-home.onrender.com/).
 
 ## Database Schema
 
