@@ -122,8 +122,24 @@ def cocktail(id):
    
 
     form = CommentForm()
-
+    
     if form.validate_on_submit():
+        if CURR_USER_KEY not in session:
+            flash("Please sign in to add a comment", "danger")
+            return redirect(url_for('login_user'))
+        
+        comment_text = form.comment.data
+        user_id = session[CURR_USER_KEY]
+        comment = Comment(text=comment_text, cocktail_id=id, user_id=user_id)
+        db.session.add(comment)
+        db.session.commit()
+        flash("Comment added successfully", "success")
+        return redirect(url_for('cocktail', id=id))
+
+    comments = Comment.query.filter_by(cocktail_id=id).all()
+
+    return render_template("cocktail.html", cocktail=processed_coctail, form=form, comments=comments)
+    """if form.validate_on_submit():
         comment_text = form.comment.data
         
         
@@ -151,7 +167,7 @@ def cocktail(id):
     
     comments = Comment.query.filter_by(cocktail_id=id).all()
 
-    return render_template("cocktail.html", cocktail=processed_coctail, form=form, comments=comments)
+    return render_template("cocktail.html", cocktail=processed_coctail, form=form, comments=comments) """
 
 
 
@@ -171,7 +187,8 @@ def delete_comment(cocktail_id, id):
 @app.route('/cocktail/<int:cocktail_id>/favorites', methods=['POST'])
 def add_to_favorites(cocktail_id):
     if CURR_USER_KEY not in session:
-        return redirect('login.html')
+        print("User not logged in, redirecting to login page")
+        return redirect(url_for('login_user'))
     
     user_id = int(session[CURR_USER_KEY])  
     cocktail_id = int(cocktail_id)  
@@ -183,7 +200,8 @@ def add_to_favorites(cocktail_id):
         db.session.add(fav_handle)
         db.session.commit()
 
-    return redirect(f'/{user_id}/favorites')
+    print(f"Redirecting to user favorites for user_id: {user_id}")
+    return redirect(url_for('favorites', user_id=user_id))
 
 
 @app.route('/<int:user_id>/favorites')
