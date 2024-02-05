@@ -201,7 +201,7 @@ def add_to_favorites(cocktail_id):
         db.session.commit()
 
     print(f"Redirecting to user favorites for user_id: {user_id}")
-    return redirect(url_for('favorites', user_id=user_id))
+    return redirect(url_for('user_fav', user_id=user_id))
 
 
 @app.route('/<int:user_id>/favorites')
